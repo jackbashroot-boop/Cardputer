@@ -1,9 +1,0 @@
-{
-  "channel": "stable",
-  "feed": "updates/manifest.json",
-  "auto_update": false,
-  "port": 8787,
-  "host": "0.0.0.0",
-  "open_browser": true,
-  "dev_mode": false
-}
