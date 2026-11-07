@@ -1,0 +1,43 @@
+{
+  "schema": 1,
+  "app": "cardputer-emu",
+  "releases": [
+    {
+      "version": "1.2.0-beta.1",
+      "channel": "beta",
+      "date": "2026-11-07",
+      "notes": [
+        "beta: experimental 32x24 thermal overlay in the module rack",
+        "beta: faster I2C bus trace in the serial console"
+      ],
+      "requires": "1.0.0",
+      "url": "updates/packages/cardputer-emu-1.2.0-beta.1.zip",
+      "sha256": "d247779977f76e63d2ab4290d0df4fd00539ea148e27416c7aa619de2568c05e",
+      "size": 1806,
+      "soft": {
+        "catalog": "updates/catalog.json"
+      }
+    },
+    {
+      "version": "1.1.0",
+      "channel": "stable",
+      "date": "2026-11-07",
+      "notes": [
+        "Feed catalog: Unit Accel, Unit Kmeter (new units, hot-plug)",
+        "New firmware app: Weather (with indoor readings from a Grove ENV unit)",
+        "Core catalog now ships 50 drivers, including Unit CO2 and Unit IMU"
+      ],
+      "requires": "1.0.0",
+      "url": "updates/packages/cardputer-emu-1.1.0.zip",
+      "sha256": "55dd498635f556613c419a26d30d8d0a8d281ed36c2635255bc4013c281b9fe1",
+      "size": 3499,
+      "soft": {
+        "catalog": "updates/catalog.json",
+        "apps": [
+          "updates/apps/weather.js"
+        ]
+      }
+    }
+  ],
+  "generated": "2026-11-07"
+}

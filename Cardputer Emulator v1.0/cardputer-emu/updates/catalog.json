@@ -1,0 +1,64 @@
+{
+  "version": "2026.11.2",
+  "generated": "2026-11-07",
+  "note": "Extra Grove units delivered by the update feed. Modules carry their driver inline so new hardware support lands without a core rebuild. Unit CO2 and Unit IMU moved into the core catalog in v1.0.0, so the feed no longer shadows them.",
+  "modules": [
+    {
+      "id": "accel",
+      "name": "Unit Accel",
+      "sku": "U056",
+      "eco": "grove",
+      "transport": "i2c",
+      "color": "#818cf8",
+      "addrs": [
+        {
+          "addr": 25,
+          "chip": "LIS3DH"
+        }
+      ],
+      "summary": "Triple-axis accelerometer, shake/vibration events (I2C 0x19)",
+      "tags": [
+        "sensor",
+        "motion"
+      ],
+      "controls": [
+        {
+          "id": "shake",
+          "label": "Shake the unit",
+          "type": "button"
+        }
+      ],
+      "source": "(ctx) => { const st = { x: 0.01, y: 0.02, z: 1.0, shakes: 0, threshold: 1.6 }; return { state: st, tick(dt) { st.x += (Math.random()-0.5)*dt*0.4; st.y += (Math.random()-0.5)*dt*0.4; st.z = Math.sqrt(Math.max(0.1, 1 - st.x*st.x - st.y*st.y)); }, setControl(id) { if (id === 'shake') { st.shakes++; st.x += 1.1; ctx.emit('accel', st); } } }; }"
+    },
+    {
+      "id": "kmeter",
+      "name": "Unit Kmeter",
+      "sku": "U090",
+      "eco": "grove",
+      "transport": "i2c",
+      "color": "#fbbf24",
+      "addrs": [
+        {
+          "addr": 80,
+          "chip": "STM32+ADC"
+        }
+      ],
+      "summary": "Voltage / current / power monitor, 0-36V 6A (I2C 0x50)",
+      "tags": [
+        "sensor",
+        "power"
+      ],
+      "controls": [
+        {
+          "id": "load",
+          "label": "Load current",
+          "min": 0,
+          "max": 6,
+          "step": 0.05,
+          "unit": "A"
+        }
+      ],
+      "source": "(ctx) => { const st = { volts: 12.02, amps: 0.42, watts: 5.05, kwh: 0.012 }; return { state: st, tick(dt) { st.watts = st.volts * st.amps; st.kwh += st.watts * dt / 3600000; }, setControl(id, v) { if (id === 'load') st.amps = Number(v); } }; }"
+    }
+  ]
+}
