@@ -1,0 +1,49 @@
+{
+  "saved_at": "2026-11-07T21:29:55",
+  "flash": {
+    "nvs": {},
+    "slot": "ota_0",
+    "appImages": {
+      "ota_0": null,
+      "ota_1": null
+    },
+    "apps": [
+      {
+        "id": "browserprog",
+        "name": "Browser Prog",
+        "version": "1.0.0",
+        "installed": 1794089752430,
+        "meta": {
+          "source": "browser_check"
+        },
+        "source": "export const APP = { id: 'browserprog', name: 'Browser Prog', setup() {}, loop(api) { api.lcd.drawString(2, 2, 'ok', api.COLORS.GREEN, 1); } };"
+      },
+      {
+        "id": "demo",
+        "name": "Demo Program",
+        "version": "1.0.0",
+        "installed": 1794089752438,
+        "meta": {
+          "source": "shot"
+        },
+        "source": "export const APP = { id: 'demo', name: 'Demo Program', setup(){}, loop(){} };"
+      }
+    ]
+  },
+  "settings": {
+    "variant": "adv",
+    "channel": "stable",
+    "autoUpdate": false,
+    "feed": "updates/manifest.json",
+    "volume": 0.7,
+    "backlight": 1,
+    "battery": 81.93916659309286,
+    "modules": [
+      "env3"
+    ],
+    "sdInserted": false,
+    "usb": false,
+    "jack": false,
+    "grove5v": true
+  }
+}
